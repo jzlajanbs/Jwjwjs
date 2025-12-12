@@ -3,7 +3,7 @@ local function b(b, c, d)
     a:SetCore("SendNotification", {Title = b, Text = c, Duration = d})
 end
 local a = {
-    "BzlAdamBzl",
+    "LuaWorldV99",
     "triggasarealzigga",
     "adamzouhair",
     "xterminator47x78_3",
