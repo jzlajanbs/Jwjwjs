@@ -4,14 +4,14 @@ local function b(b, c, d)
 end
 local a = {
     "LuaWorldV99",
-    "triggasarealzigga",
-    "adamzouhair",
-    "xterminator47x78_3",
-    "Megalodon250850",
-    "AcropolisProd",
-    "AcropoliXProd",
-    "BlistarZ3900",
-    "EAEAeAeALOL312323121"
+    "SadNii4",
+    "OfEternal_king",
+    "user1",
+    "user2",
+    "user3",
+    "user4",
+    "user5",
+    "user6"
 }
 if game.PlaceId == 3623096087 then
     local c, d =
